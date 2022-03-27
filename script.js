@@ -24,6 +24,18 @@ const tableItems = [
 
 const listElement = document.getElementById('list');
 const paginationElement = document.getElementById('pagination');
+const searchInput = document.querySelector('[data-search]');
+
+searchInput.addEventListener('input', e => {
+    const value = e.target.value.toLowerCase();
+    const items = document.getElementsByClassName('item');
+    [...items].forEach(item => {
+        const show = item.innerText.toLowerCase().includes(value);
+        // toggle function allow us to pass a name of a variable that allows it to show if it should show the class or not. 
+        item.classList.toggle("hide", !show); // if the value is found, show the element. 
+    });
+});
+    
 
 let currentPage = 1;
 let totalItemsPerPage = 5 ;
@@ -41,10 +53,8 @@ function displayList(items, listElement, rowsPerPage, page) {
         let itemElement = document.createElement('div'); // create a div element
         itemElement.classList.add('item');
         itemElement.innerText = item;
-
         listElement.appendChild(itemElement); // adds the item to the list element
     }
-
 }
 
 function setupPagination(items, listElement, rowsPerPage) {
@@ -72,7 +82,6 @@ function paginationButon(pageNumber, items) {
     if(currentPage === pageNumber) {
         button.classList.add('active')
     }
-
     return button;
 }
 

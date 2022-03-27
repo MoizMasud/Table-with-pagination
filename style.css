@@ -74,3 +74,22 @@ main .list .item:hover {
     background-color: #44eeaa;
     box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
 }
+
+.search-wrapper {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap:.25rem;
+    
+}
+
+input {
+    font-size: 1rem;
+    width: 200px;
+    border: 1px solid black;
+    height: 20px;
+}
+
+.hide {
+    display: none;
+}
