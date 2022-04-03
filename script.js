@@ -57,12 +57,12 @@ function displayList(items, listElement, rowsPerPage, page) {
     }
 }
 
-function setupPagination(items, listElement, rowsPerPage) {
-    listElement.innerHTML = "";
+function setupPagination(items, pagenationElement, rowsPerPage) {
+    pagenationElement.innerHTML = "";
     let pageCount = Math.ceil(items.length/ rowsPerPage); // round up because lets say u have 22 items, u dont want to loose the last two items
     for(let i=1; i<pageCount + 1;i++) { // 1 because page starts at 1
         let btn = paginationButon(i, items);
-        listElement.appendChild(btn);
+        pagenationElement.appendChild(btn);
     }
 }
 
